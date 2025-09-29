@@ -32,9 +32,17 @@ const AppContextProvider = ({ children }) => {
       console.log(error.message);
     }
   };
+  const fetchBlogss = async () => {
+    try {
+      setBlogsData(blogs);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
   useEffect(() => {
     fetchCategories();
     fetchProducts()
+    fetchBlogss()
   }, []);
 
   const value = {
