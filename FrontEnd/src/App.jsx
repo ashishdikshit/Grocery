@@ -11,15 +11,17 @@ import WishList from "./Pages/WishList";
 import CheckOut from "./Pages/CheckOut";
 import AddAddress from "./Pages/AddAddress";
 import MyOrder from "./Pages/MyOrder";
+import Navbar from "./componants/Navbar";
 
 function App() {
   return (
     <>
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/shop" element={<Shop />} />
-        <Route path="/product/:id" element={<ProductDetails/>} />
-        <Route path="/about" element={<About/>} />
+        <Route path="/product/:id" element={<ProductDetails />} />
+        <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
