@@ -12,10 +12,12 @@ import CheckOut from "./Pages/CheckOut";
 import AddAddress from "./Pages/AddAddress";
 import MyOrder from "./Pages/MyOrder";
 import Navbar from "./componants/Navbar";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
     <>
+      <Toaster />
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />

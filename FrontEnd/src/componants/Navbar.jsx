@@ -3,6 +3,7 @@ import { assets } from "../assets/assets.js";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Heart, ShoppingBag } from "lucide-react";
 import { AppContext } from "../context/AppContext.jsx";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
   const { navigate, user, setUser, cart, favorite, axios } =
@@ -17,7 +18,11 @@ const Navbar = () => {
       : "";
   };
 
-  const logout = () => {};
+  const logout = () => {
+    setUser(null);
+    toast.success("logout successfull");
+    navigate("/");
+  };
   return (
     <nav className="flex items-center justify-between px-6 md:px-16 lg:px-24 xl:px-32 py-4 border-b border-gray-300 bg-white relative transition-all">
       <Link>
