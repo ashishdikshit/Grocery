@@ -4,6 +4,7 @@ import { categories, products, blogs } from "../assets/assets";
 import axios from "axios";
 import { useEffect } from "react";
 export const AppContext = createContext();
+const currency = import.meta.env.VITE_CURRENCY;
 
 const AppContextProvider = ({ children }) => {
   const navigate = useNavigate();
@@ -19,16 +20,23 @@ const AppContextProvider = ({ children }) => {
 
   const fetchCategories = async () => {
     try {
-      setCategoriesData(categories)
+      setCategoriesData(categories);
     } catch (error) {
       console.log(error);
     }
   };
-
+  const fetchProducts = async () => {
+    try {
+      setProductsData(products);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
   useEffect(() => {
-    fetchCategories()
-  }, [])
-  
+    fetchCategories();
+    fetchProducts()
+  }, []);
+
   const value = {
     navigate,
     user,
@@ -44,6 +52,7 @@ const AppContextProvider = ({ children }) => {
     cart,
     favorite,
     axios,
+    currency
   };
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };
