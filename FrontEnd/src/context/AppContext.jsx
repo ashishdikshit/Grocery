@@ -1,6 +1,8 @@
 import { createContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { categories, products, blogs } from "../assets/assets";
 import axios from "axios";
+import { useEffect } from "react";
 export const AppContext = createContext();
 
 const AppContextProvider = ({ children }) => {
@@ -15,6 +17,18 @@ const AppContextProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
   const [favorite, setFavorite] = useState([]);
 
+  const fetchCategories = async () => {
+    try {
+      setCategoriesData(categories)
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchCategories()
+  }, [])
+  
   const value = {
     navigate,
     user,
@@ -24,12 +38,12 @@ const AppContextProvider = ({ children }) => {
     loading,
     setLoading,
     categoriesData,
-    
+
     productsData,
     blogsData,
     cart,
     favorite,
-    axios
+    axios,
   };
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };
