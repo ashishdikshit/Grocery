@@ -1,5 +1,6 @@
 import React from "react";
 import { assets } from "../assets/assets";
+import Brands from "../componants/Brands";
 
 const About = () => {
   return (
@@ -28,7 +29,7 @@ const About = () => {
           <button className="bg-secondary text-white px-4 py-2">Shop</button>
         </div>
       </div>
-      {/* <Brands /> */}
+      <Brands />
     </div>
   );
 };

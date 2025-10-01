@@ -13,6 +13,7 @@ import AddAddress from "./Pages/AddAddress";
 import MyOrder from "./Pages/MyOrder";
 import Navbar from "./componants/Navbar";
 import { Toaster } from "react-hot-toast";
+import Footer from "./componants/Footer";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
           <Route path="/add-address" element={<AddAddress />} />
           <Route path="/my-orders" element={<MyOrder />} />
         </Routes>
+        <Footer/>
       </div>
     </>
   );
