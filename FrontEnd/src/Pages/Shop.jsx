@@ -6,6 +6,7 @@ const Shop = () => {
   const { productsData } = useContext(AppContext);
   const [input, setInput] = useState("");
   const [filteredProdcuts, setFilteredProdcuts] = useState(productsData);
+//console.log(productsData);
 
   const handleSearch = () => {
     const query = input.toLowerCase().trim();

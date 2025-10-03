@@ -27,7 +27,11 @@ const AppContextProvider = ({ children }) => {
   };
   const fetchProducts = async () => {
     try {
+      //console.log(products);
+
       setProductsData(products);
+      //console.log(productsData);
+      
     } catch (error) {
       console.log(error.message);
     }
@@ -41,8 +45,8 @@ const AppContextProvider = ({ children }) => {
   };
   useEffect(() => {
     fetchCategories();
-    fetchProducts()
-    fetchBlogss()
+    fetchProducts();
+    fetchBlogss();
   }, []);
 
   const value = {
@@ -60,7 +64,7 @@ const AppContextProvider = ({ children }) => {
     cart,
     favorite,
     axios,
-    currency
+    currency,
   };
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };
